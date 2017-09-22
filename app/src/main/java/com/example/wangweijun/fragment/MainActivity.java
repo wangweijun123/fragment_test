@@ -44,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putInt("num", mStackLevel);
         newfragment.setArguments(bundle);
-        ft.replace(R.id.container_fragment, newfragment);
+        ft.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_right_exit);
 //        ft.setCustomAnimations(R.anim.alpha_from_0_to_1,R.anim.alpha_from_1_to_0);
+        ft.replace(R.id.container_fragment, newfragment);
+
         ft.addToBackStack(null);// 控制是否加入堆栈，如果不调用，就是不加入，用户按返回直接退出activity
         ft.commit();
     }
