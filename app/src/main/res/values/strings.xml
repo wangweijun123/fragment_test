@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ttttt</string>
+    <string name="new_fragment">Push</string>
+    <string name="delete_fragment">Pop</string>
 </resources>
