@@ -1,6 +1,8 @@
 package com.example.wangweijun.fragment;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +48,18 @@ public class CountingFragment extends Fragment {
         }
 
         return v;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        Log.i("wang", this + ", onAttach  activity:"+mNum);
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        Log.i("wang", this + ", onDetach  mNum:"+mNum);
+        super.onDetach();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.wangweijun.fragment;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putInt("num", mStackLevel);
         newfragment.setArguments(bundle);
-        ft.replace(R.id.container_fragment, newfragment).commit();
+        ft.add(R.id.container_fragment, newfragment).commit();
 
         // Watch for button clicks.
         Button button = (Button)findViewById(R.id.new_fragment);
@@ -35,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        Button skip = (Button)findViewById(R.id.skip);
+        skip.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ContainerFragmentsActivity.class));
+            }
+        });
+
     }
 
     void addFragmentToStack() {
@@ -44,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putInt("num", mStackLevel);
         newfragment.setArguments(bundle);
-        ft.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_right_exit);
+//        ft.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_right_exit);
 //        ft.setCustomAnimations(R.anim.alpha_from_0_to_1,R.anim.alpha_from_1_to_0);
         ft.replace(R.id.container_fragment, newfragment);
 
